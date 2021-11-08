@@ -4,7 +4,6 @@
       <v-card class="logo py-4 d-flex justify-center">
         <NuxtLogo />
         <VuetifyLogo />
-        
       </v-card>
       <v-card>
         <v-card-title class="headline">

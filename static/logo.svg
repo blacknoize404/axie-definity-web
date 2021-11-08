@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 398">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill-rule: evenodd;
+      }
+
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient-2);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="138.594" y1="397.562" x2="138.594" y2="1.281" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0bbafb"/>
+      <stop offset="1" stop-color="#4285ec"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="382.156" y1="394.531" x2="382.156" y2="25.469" xlink:href="#linear-gradient"/>
+  </defs>
+  <path id="Forma_1" data-name="Forma 1" class="cls-1" d="M259.54,21.584s2.57,374.017.252,374.215c-20.627,1.76-32.28,1.771-25.7,1.771h-51.66V99.008L79.36,397.57H25.18c-8.564,0-12.57-2.977-14.049-4.46s-5.668-6.859-2.441-14.939l116.584-337.7c3.55-10.284-7.721-36.05-2.868-35.847s15.471,19.743,25.749,19.743h85.932S261.191,1.171,269,1.28c3.579,0.05-7.976,16.359-9.205,23.087"/>
+  <path id="Forma_2" data-name="Forma 2" class="cls-2" d="M272.644,99.767c0.172-.067,141.624-0.451,141.624,111.075S272.644,319.893,272.644,319.893v74.641c37.57-3.927,93.147-12.873,129.915-33.281,2.627-1.458,20.811,12.714,26.355,9.122,5.409-3.5-1.8-24.747.006-26.128,36.123-27.7,62.74-69.713,62.74-133.37,0-149.656-147.12-179.67-219.012-185.4Zm0-.215-0.755,220.341"/>
+</svg>
