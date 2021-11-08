@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col class="text-center">
-      <img src="/v.png" alt="Vuetify.js" class="mb-5" />
+      <img src="v.png" alt="Vuetify.js" class="mb-5" />
       <blockquote class="blockquote">
         &#8220;Primero, resuelve el problema. Luego, escribe el código.&#8221;
         <footer>
