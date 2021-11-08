@@ -1,6 +1,6 @@
 <template>
   <main>
-    <img class="Logo" alt="Logo" src="/logo.svg" />
+    <img class="Logo" alt="Logo" src="logo.svg" />
     <span class="LogoText" >Academy</span>
   </main>
 </template>
