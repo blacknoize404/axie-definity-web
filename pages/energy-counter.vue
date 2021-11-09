@@ -7,16 +7,14 @@
 
       <v-col cols="auto" sm="auto" md="auto" align="center" justify="center">
         <!-- Using the elevation prop -->
-        <div class="energy-counter-count">3</div>
+        <div class="energy-counter-count">{{energy}}</div>
         <div>
-          <v-btn color="primary" nuxt class=""> - </v-btn>
-          <v-btn color="primary" nuxt class="px-6"> Next Round </v-btn>
-          <v-btn color="primary" nuxt class=""> + </v-btn>
+          <v-btn color="primary" nuxt @click="remEnergy"> - </v-btn>
+          <v-btn id color="primary" nuxt class="px-6" @click="nextRound"> Next Round </v-btn>
+          <v-btn color="primary" nuxt @click="addEnergy"> + </v-btn>
         </div>
         <div>
-          <v-btn color="primary" nuxt class="px-16 white my-2" outlined dark>
-            New Game
-          </v-btn>
+          <v-btn color="primary" nuxt class="px-16 white my-2" outlined @click="newGame"> New Game </v-btn>
         </div>
         <v-card width="400">
           <v-card-text>
@@ -49,6 +47,7 @@
 export default {
   data() {
     return {
+      energy: 3,
       messages: [
         {
           from: 'You',
@@ -69,6 +68,35 @@ export default {
           color: 'deep-purple lighten-1',
         },
       ],
+    }
+  },
+  methods: {
+    addEnergy() {
+
+      if (this.energy < 10) {
+        this.energy += 1
+      }
+
+    },
+    remEnergy() {
+
+      if (this.energy > 0) {
+        this.energy -= 1
+      }
+    },
+    nextRound() {
+
+      if (this.energy < 9) {
+        this.energy += 2
+      }
+
+      else if (this.energy === 9) {
+        this.energy += 1
+      }
+      
+    },
+    newGame() {
+      this.energy = 3
     }
   },
 }
