@@ -63,8 +63,9 @@ export default {
       author: 'BlackNoizE404',
     },
     manifest: {
-      name: 'A helper tool for Axie Infinity',
+      name: 'Axie Tools',
       short_name: 'Axie Tools',
+      description: "A helper tool for Axie Infinity.",
       lang: 'en',
       icons: [
         {
