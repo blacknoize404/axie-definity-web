@@ -1,10 +1,10 @@
 <template>
-  <v-app dark>
+  <v-app >
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
       :clipped="clipped"
-      fixed
+      right
       app
     >
       <v-list nav>
@@ -24,8 +24,7 @@
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" fixed app>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+    <v-app-bar :clipped-right="clipped" fixed app>
 
       <!-- <v-btn icon @click.stop="miniVariant = !miniVariant">
         <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
@@ -37,15 +36,15 @@
 
       <v-btn icon @click.stop="fixed = !fixed">
         <v-icon>mdi-minus</v-icon>
-      </v-btn>
-       -->
+      </v-btn> -->
+      
       <v-toolbar-title><Logo /></v-toolbar-title>
 
       <v-spacer />
       <!-- <v-btn icon @click.stop="rightDrawer = !rightDrawer">
         <v-icon>mdi-menu</v-icon>
       </v-btn> -->
-
+<!-- 
       <v-btn icon>
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
@@ -56,7 +55,10 @@
 
       <v-btn icon>
         <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
+      </v-btn> -->
+      
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+
     </v-app-bar>
     <v-main>
       <v-container fluid>
@@ -75,7 +77,7 @@
     </v-navigation-drawer> -->
     <v-footer dark padless :absolute="!fixed" app>
       <v-card class="flex" flat tile>
-        <v-card-title class="teal">
+        <v-card-title style="background-color: #474747  ">
           <strong class="subheading"
             >Get connected with us on social networks!</strong
           >
@@ -102,7 +104,7 @@
 export default {
   data() {
     return {
-      icons: ['mdi-facebook', 'mdi-twitter', 'mdi-linkedin', 'mdi-instagram'],
+      icons: ['mdi-facebook', 'mdi-twitter', 'mdi-discord'],
       title: 'Academy',
       miniVariant: false,
       right: false,
