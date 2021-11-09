@@ -7,14 +7,38 @@
 
       <v-col cols="auto" sm="auto" md="auto" align="center" justify="center">
         <!-- Using the elevation prop -->
-        <div class="energy-counter-count">{{energy}}</div>
+        <div class="energy-counter-count">{{ energy }}</div>
         <div>
-          <v-btn color="primary" nuxt @click="remEnergy"> - </v-btn>
-          <v-btn id color="primary" nuxt class="px-6" @click="nextRound"> Next Round </v-btn>
-          <v-btn color="primary" nuxt @click="addEnergy"> + </v-btn>
+          <v-btn
+            :disabled="remEnergyButtonDisable"
+            color="primary"
+            nuxt
+            @click="remEnergy"
+          >
+            -
+          </v-btn>
+          <v-btn color="primary" nuxt class="px-6" @click="nextRound">
+            Next Round
+          </v-btn>
+          <v-btn
+            :disabled="addEnergyButtonDisable"
+            color="primary"
+            nuxt
+            @click="addEnergy"
+          >
+            +
+          </v-btn>
         </div>
         <div>
-          <v-btn color="primary" nuxt class="px-16 white my-2" outlined @click="newGame"> New Game </v-btn>
+          <v-btn
+            color="primary"
+            nuxt
+            class="px-16 white my-2"
+            outlined
+            @click="newGame"
+          >
+            New Game
+          </v-btn>
         </div>
         <v-card width="400">
           <v-card-text>
@@ -48,56 +72,84 @@ export default {
   data() {
     return {
       energy: 3,
-      messages: [
-        {
-          from: 'You',
-          message: `-1 energy`,
-          time: '10:42am',
-          color: 'deep-purple lighten-1',
-        },
-        {
-          from: 'You',
-          message: `+1 energy`,
-          time: '10:37am',
-          color: 'green',
-        },
-        {
-          from: 'You',
-          message: `-1 energy`,
-          time: '9:47am',
-          color: 'deep-purple lighten-1',
-        },
-      ],
+      remEnergyButtonDisable: false,
+      addEnergyButtonDisable: false,
+      messages: [],
     }
   },
+  mounted() {
+      this.newGame()
+  },
   methods: {
-    addEnergy() {
+    formatAMPM(date) {
+      let hours = date.getHours()
+      let minutes = date.getMinutes()
+      const seconds = date.getSeconds()
+      const ampm = hours >= 12 ? 'pm' : 'am'
+      hours = hours % 12
+      hours = hours || 12 // the hour '0' should be '12'
+      minutes = minutes < 10 ? '0' + minutes : minutes
+      const strTime = hours + ':' + minutes + ':' + seconds + ' ' + ampm
+      return strTime
+    },
+    resetLog() {
+      this.messages = []
+    },
+    logEnergyActions(newMessage, color) {
+      const today = new Date()
+      this.messages.unshift({
+        from: 'You',
+        message: newMessage,
+        time: this.formatAMPM(today),
+        color: color + ' lighten-1',
+      })
+    },
 
+    addEnergy() {
       if (this.energy < 10) {
         this.energy += 1
+        this.logEnergyActions('+1 Energy', 'light-blue darken-3')
+
+        this.remEnergyButtonDisable = false
       }
 
+      if (this.energy === 10) {
+        this.addEnergyButtonDisable = true
+      }
     },
     remEnergy() {
-
       if (this.energy > 0) {
         this.energy -= 1
+        this.logEnergyActions('-1 Energy', 'deep-orange')
+
+        this.addEnergyButtonDisable = false
+      }
+
+      if (this.energy === 0) {
+        this.remEnergyButtonDisable = true
       }
     },
     nextRound() {
-
       if (this.energy < 9) {
         this.energy += 2
-      }
-
-      else if (this.energy === 9) {
+      } else if (this.energy === 9) {
         this.energy += 1
       }
-      
+      if (this.energy === 10) {
+        this.addEnergyButtonDisable = true
+      }
+      if (this.energy > 0) {
+        this.remEnergyButtonDisable = false
+      }
+      this.logEnergyActions('Next Round -> +2 Energy', 'teal darken-1')
     },
     newGame() {
       this.energy = 3
-    }
+      this.resetLog()
+      this.logEnergyActions('New Game Started', 'deep-purple')
+      this.addEnergyButtonDisable = false
+      this.remEnergyButtonDisable = false
+    },
   },
 }
 </script>
