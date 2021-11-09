@@ -61,7 +61,7 @@
             </v-timeline>
           </v-card-text>
         </v-card>
-        <div class="my-6"></div>
+        <div class="my-2"></div>
       </v-col>
     </div>
   </v-container>
