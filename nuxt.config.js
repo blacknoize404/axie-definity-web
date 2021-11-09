@@ -57,6 +57,9 @@ export default {
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
+    icon: {
+      source: 'icon.png'
+    },
     meta: {
       title: 'Axie Tools',
       author: 'BlackNoizE404',
@@ -67,7 +70,7 @@ export default {
       lang: 'en',
       icons: [
         {
-          "src": "logo.png",
+          "src": "icon.png",
           "type": "image/png",
           "sizes": "512x512"
         }
