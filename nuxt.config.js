@@ -48,6 +48,8 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+
+    
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -55,9 +57,24 @@ export default {
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
+    meta: {
+      title: 'Axie Tools',
+      author: 'BlackNoizE404',
+    },
     manifest: {
-      lang: 'en'
-    }
+      name: 'A helper tool for Axie Infinity',
+      short_name: 'Axie Tools',
+      lang: 'en',
+      icons: [
+        {
+          "src": "logo.png",
+          "type": "image/png",
+          "sizes": "512x512"
+        }
+      ],
+      background_color: "#3367D6",
+      display: "standalone",
+    },
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

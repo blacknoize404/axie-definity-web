@@ -1,5 +1,5 @@
 <template>
-  <v-app >
+  <v-app>
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -25,7 +25,6 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar :clipped-right="clipped" fixed app>
-
       <!-- <v-btn icon @click.stop="miniVariant = !miniVariant">
         <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
       </v-btn>
@@ -37,14 +36,14 @@
       <v-btn icon @click.stop="fixed = !fixed">
         <v-icon>mdi-minus</v-icon>
       </v-btn> -->
-      
+
       <v-toolbar-title><Logo /></v-toolbar-title>
 
       <v-spacer />
       <!-- <v-btn icon @click.stop="rightDrawer = !rightDrawer">
         <v-icon>mdi-menu</v-icon>
       </v-btn> -->
-<!-- 
+      <!-- 
       <v-btn icon>
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
@@ -56,13 +55,35 @@
       <v-btn icon>
         <v-icon>mdi-dots-vertical</v-icon>
       </v-btn> -->
-      
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
 
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
     </v-app-bar>
     <v-main>
       <v-container fluid>
         <Nuxt />
+
+        <v-footer dark padless :absolute="true">
+          <v-card class="flex" flat tile>
+            <!-- <v-card-title style="background-color: #474747">
+              <strong class="subheading"
+                >Get connected with us on social networks!</strong
+              >
+
+              <v-spacer></v-spacer>
+
+              <v-btn v-for="icon in icons" :key="icon" class="mx-4" dark icon>
+                <v-icon size="24px">
+                  {{ icon }}
+                </v-icon>
+              </v-btn>
+            </v-card-title> -->
+
+            <v-card-text class="py-2 white--text text-center">
+              {{ new Date().getFullYear() }} —
+              <strong>Axie Definity Academy</strong>
+            </v-card-text>
+          </v-card>
+        </v-footer>
       </v-container>
     </v-main>
     <!-- <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
@@ -75,28 +96,6 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer> -->
-    <v-footer dark padless :absolute="!fixed" app>
-      <v-card class="flex" flat tile>
-        <v-card-title style="background-color: #474747  ">
-          <strong class="subheading"
-            >Get connected with us on social networks!</strong
-          >
-
-          <v-spacer></v-spacer>
-
-          <v-btn v-for="icon in icons" :key="icon" class="mx-4" dark icon>
-            <v-icon size="24px">
-              {{ icon }}
-            </v-icon>
-          </v-btn>
-        </v-card-title>
-
-        <v-card-text class="py-2 white--text text-center">
-          {{ new Date().getFullYear() }} —
-          <strong>Axie Definity Academy</strong>
-        </v-card-text>
-      </v-card>
-    </v-footer>
   </v-app>
 </template>
 

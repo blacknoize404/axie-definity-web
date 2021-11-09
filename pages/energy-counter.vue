@@ -12,18 +12,16 @@
           <v-btn
             :disabled="remEnergyButtonDisable"
             color="primary"
-            nuxt
             @click="remEnergy"
           >
             -
           </v-btn>
-          <v-btn color="primary" nuxt class="px-6" @click="nextRound">
+          <v-btn color="primary" class="px-6" @click="nextRound">
             Next Round
           </v-btn>
           <v-btn
             :disabled="addEnergyButtonDisable"
             color="primary"
-            nuxt
             @click="addEnergy"
           >
             +
@@ -40,7 +38,7 @@
             New Game
           </v-btn>
         </div>
-        <v-card width="400">
+        <v-card width="400" class="mb-8">
           <v-card-text>
             <div class="font-weight-bold ml-8 mb-2">History</div>
 
@@ -78,7 +76,7 @@ export default {
     }
   },
   mounted() {
-      this.newGame()
+    this.newGame()
   },
   methods: {
     formatAMPM(date) {
