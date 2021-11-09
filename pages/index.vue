@@ -1,5 +1,10 @@
 <template>
   <v-row justify="center" align="center">
+    
+    <v-container>
+      <h1>Welcome to Axie Definity Academy Web First Prototipe</h1>
+    
+    </v-container>
     <!-- <v-col cols="12" sm="8" md="6">
       <v-card class="logo py-4 d-flex justify-center">
         <NuxtLogo />

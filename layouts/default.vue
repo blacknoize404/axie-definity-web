@@ -134,7 +134,7 @@ export default {
           to: '/energy-counter',
         },
         {
-          icon: 'mdi-lightning-bolt-outline',
+          icon: 'mdi-star-box-multiple',
           title: 'Damage Calculator',
           to: '/damage-calculator',
         },
