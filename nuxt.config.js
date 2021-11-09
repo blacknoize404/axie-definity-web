@@ -73,7 +73,7 @@ export default {
           "sizes": "512x512"
         }
       ],
-      background_color: "#3367D6",
+      background_color: "#121212",
       display: "standalone",
     },
   },
