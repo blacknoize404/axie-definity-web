@@ -76,7 +76,7 @@ export default {
       ],
       background_color: "#121212",
       display: "standalone",
-    },
+    },  
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
