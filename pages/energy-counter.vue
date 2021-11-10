@@ -53,7 +53,7 @@
                   <div class="font-weight-normal">
                     <strong>{{ message.from }}</strong> @{{ message.time }}
                   </div>
-                  <div>{{ message.message }}</div>
+                  <strong>{{ message.message }}</strong>
                 </div>
               </v-timeline-item>
             </v-timeline>
@@ -70,6 +70,7 @@ export default {
   data() {
     return {
       energy: 3,
+      round: 1,
       remEnergyButtonDisable: false,
       addEnergyButtonDisable: false,
       messages: [],
@@ -82,22 +83,26 @@ export default {
     formatAMPM(date) {
       let hours = date.getHours()
       let minutes = date.getMinutes()
-      const seconds = date.getSeconds()
+      let seconds = date.getSeconds()
       const ampm = hours >= 12 ? 'pm' : 'am'
       hours = hours % 12
       hours = hours || 12 // the hour '0' should be '12'
       minutes = minutes < 10 ? '0' + minutes : minutes
+
+      if (seconds < 10) {
+        seconds = "0" + seconds
+      }
+
       const strTime = hours + ':' + minutes + ':' + seconds + ' ' + ampm
       return strTime
     },
     resetLog() {
       this.messages = []
     },
-    logEnergyActions(newMessage, color) {
+    logEnergyActions(title, color) {
       const today = new Date()
       this.messages.unshift({
-        from: 'You',
-        message: newMessage,
+        from: title,
         time: this.formatAMPM(today),
         color: color + ' lighten-1',
       })
@@ -128,6 +133,8 @@ export default {
       }
     },
     nextRound() {
+
+      let addedEnergy = ' (+2)'
       if (this.energy < 9) {
         this.energy += 2
       } else if (this.energy === 9) {
@@ -135,13 +142,17 @@ export default {
       }
       if (this.energy === 10) {
         this.addEnergyButtonDisable = true
+        addedEnergy = ''
       }
       if (this.energy > 0) {
         this.remEnergyButtonDisable = false
       }
-      this.logEnergyActions('Next Round -> +2 Energy', 'teal darken-1')
+      this.round += 1
+      this.logEnergyActions('Round ' + this.round + addedEnergy, 'teal darken-1')
     },
     newGame() {
+      
+      this.round = 1
       this.energy = 3
       this.resetLog()
       this.logEnergyActions('New Game Started', 'deep-purple')
