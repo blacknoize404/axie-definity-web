@@ -5,7 +5,7 @@ export default {
   target: 'static',
 
   router: {
-    base: '/axie-definity-web/'
+    base: '/axie-definity-web/',
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -16,20 +16,23 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' }],
+  },
+
+  vue: {
+    config: {
+      productionTip: false,
+      devtools: false,
+    },
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-  ],
+  css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-  ],
+  plugins: ['~/plugins/nuxt-vue-kinesis.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -56,7 +59,7 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     icon: {
-      source: 'icon.png'
+      source: 'icon.png',
     },
     meta: {
       title: 'Axie Tools',
@@ -65,27 +68,26 @@ export default {
     manifest: {
       name: 'Axie Tools',
       short_name: 'Axie Tools',
-      description: "A helper tool for Axie Infinity.",
+      description: 'A helper tool for Axie Infinity.',
       lang: 'en',
       icons: [
         {
-          "src": "icon.png",
-          "type": "image/png",
-          "sizes": "512x512"
-        }
+          src: 'icon.png',
+          type: 'image/png',
+          sizes: '512x512',
+        },
       ],
-      background_color: "#121212",
-      display: "standalone",
-    },  
+      background_color: '#121212',
+      display: 'standalone',
+    },
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
-        
         light: {
           primary: '#1976D2',
           secondary: '#424242',
@@ -102,13 +104,12 @@ export default {
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
-          success: colors.green.accent3
-        }
-      }
-    }
+          success: colors.green.accent3,
+        },
+      },
+    },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-  }
+  build: {},
 }

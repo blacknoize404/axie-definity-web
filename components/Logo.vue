@@ -1,20 +1,18 @@
 <template>
   <main>
     <img class="Logo" alt="Logo" src="logo.svg" />
-    <span class="LogoText" >Academy</span>
+    
+    <span class="LogoText">Axie Definity Academy</span>
   </main>
 </template>
 
 <style>
 .Logo {
-  height: 50px;
-  padding-top: 10px;
+  height: 30px;
+  vertical-align: middle;
 }
 .LogoText {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #ffbf6b;
-    position: absolute;
-    margin-top: 23px;
+  vertical-align: -3px;
 }
+
 </style>

@@ -1,5 +1,5 @@
-<template>
-  <v-container>
+<template >
+  <v-container dark>
     <v-row justify="space-around"> </v-row>
 
     <div>
@@ -67,6 +67,7 @@
 
 <script>
 export default {
+  layout: 'tools',
   data() {
     return {
       energy: 3,

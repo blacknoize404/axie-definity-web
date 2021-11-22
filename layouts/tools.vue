@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app dark>
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -10,12 +10,11 @@
       <v-list nav>
         <v-list-item-group>
           <v-list-item
-            v-for="(item, i) in items"
+            v-for="(item, i) in mainMenu"
             :key="i"
             :to="item.to"
             router
-            exact
-          >
+            exact>
             <v-list-item-action>
               <v-icon>{{ item.icon }}</v-icon>
             </v-list-item-action>
@@ -25,58 +24,20 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar :clipped-right="clipped" fixed app>
-      <!-- <v-btn icon @click.stop="miniVariant = !miniVariant">
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-
-      <v-btn icon @click.stop="clipped = !clipped">
-        <v-icon>mdi-application</v-icon>
-      </v-btn>
-
-      <v-btn icon @click.stop="fixed = !fixed">
-        <v-icon>mdi-minus</v-icon>
-      </v-btn> -->
-
       <v-toolbar-title><Logo /></v-toolbar-title>
 
       <v-spacer />
-      <!-- <v-btn icon @click.stop="rightDrawer = !rightDrawer">
-        <v-icon>mdi-menu</v-icon>
-      </v-btn> -->
-      <!-- 
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn> -->
 
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
     </v-app-bar>
     <v-main>
-      <v-container fluid>
+      <!-- <v-container fluid style="position: absolute; width: 100%; height: 100%;" class="overflow-auto"> -->
+        <v-container fluid class="overflow-auto">
         <Nuxt />
 
-        <v-footer dark padless :absolute="true">
+      </v-container>
+      <v-footer dark padless :absolute="true">
           <v-card class="flex" flat tile>
-            <!-- <v-card-title style="background-color: #474747">
-              <strong class="subheading"
-                >Get connected with us on social networks!</strong
-              >
-
-              <v-spacer></v-spacer>
-
-              <v-btn v-for="icon in icons" :key="icon" class="mx-4" dark icon>
-                <v-icon size="24px">
-                  {{ icon }}
-                </v-icon>
-              </v-btn>
-            </v-card-title> -->
 
             <v-card-text class="py-2 white--text text-center">
               {{ new Date().getFullYear() }} —
@@ -84,18 +45,9 @@
             </v-card-text>
           </v-card>
         </v-footer>
-      </v-container>
     </v-main>
-    <!-- <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light> mdi-repeat </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer> -->
+   
+   
   </v-app>
 </template>
 
@@ -103,6 +55,7 @@
 export default {
   data() {
     return {
+      
       icons: ['mdi-facebook', 'mdi-twitter', 'mdi-discord'],
       title: 'Academy',
       miniVariant: false,
@@ -111,7 +64,7 @@ export default {
       clipped: true,
       drawer: false,
       fixed: false,
-      items: [
+      mainMenu: [
         {
           icon: 'mdi-apps',
           title: 'Start',
@@ -126,6 +79,11 @@ export default {
           icon: 'mdi-newspaper-variant-multiple',
           title: 'Scholarship Info',
           to: '/scholarship',
+        },
+        {
+          icon: 'mdi-lightning-bolt-outline',
+          title: 'Cards Info',
+          to: '/cards',
         },
         {
           icon: 'mdi-lightning-bolt-outline',
@@ -147,3 +105,10 @@ export default {
   },
 }
 </script>
+
+<style>
+
+/* html {
+  overflow-y: auto;
+} */
+</style>

@@ -80,3 +80,9 @@
     </v-col> -->
   </v-row>
 </template>
+
+<script>
+export default {
+  layout: 'main' // you can set a custom layout for the error page
+}
+</script>
