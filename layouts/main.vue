@@ -85,12 +85,7 @@
                     class="text-h5 text-h5-sm"
                     style="margin: 30px 0px 0px 0px"
                   >
-                    <span style="color: orange">Axie Definity Academy</span> is
-                    an Axie Infinity scholarship program with the most clear
-                    scholar application process around. We are a family and
-                    strive to be the best Axie trainers we can be. Here are a
-                    few ways Y.A.A. is different from your normal scholarship
-                    program:
+                    <span style="color: orange">Axie Definity Academy</span> is an Axie Infinity scholarship program with the most clear scholar application process around. We are a family and strive to be the best Axie trainers we can be. Here are a few ways Axie Definity is different from your normal scholarships program:
                   </p>
                 </div>
               </v-lazy>
@@ -136,6 +131,7 @@
               </v-layout>
             </section>
           </v-lazy>
+          
           <section id="exams" class="py-16">
             <v-container class="py-16">
               <v-lazy
@@ -146,24 +142,19 @@
                 transition="fade-transition"
               >
                 <div>
-                  <span class="text-h3 text-h4-sm">Apply Scholarship</span>
+                  <span class="text-h3 text-h4-sm">Exams</span>
 
                   <p
                     class="text-h5 text-h5-sm"
                     style="margin: 30px 0px 0px 0px"
                   >
-                    <span style="color: orange">Axie Definity Academy</span> is
-                    an Axie Infinity scholarship program with the most clear
-                    scholar application process around. We are a family and
-                    strive to be the best Axie trainers we can be. Here are a
-                    few ways Y.A.A. is different from your normal scholarship
-                    program:
+                    At Axie Definity we care and take care of our scholars, we are totally motivated to offer feedback to new and old members who need to learn. That's why we've created several updated quizzes for you to brush up on your knowledge of Axie Infinity.
                   </p>
                 </div>
               </v-lazy>
               <v-row style="justify-content: center" justify="space-between">
                 <v-col
-                  v-for="(item, i) in scholarship"
+                  v-for="(item, i) in exams"
                   :key="i"
                   cols="16"
                   sm="4"
@@ -208,7 +199,7 @@ export default {
         {
           title: 'Value Based Scholarships',
           description:
-            "All scholarships given at Yuuki's Axie Academy are value based. We have developed a system for scholars to work hard to get into the academy. This system is outlined in detail on our discord server here.",
+            "All scholarships given at Axie Definity Academy are value based. We have developed a system for scholars to work hard to get into the academy. This system is outlined in detail on our discord server here.",
         },
         {
           title: 'Axie Training Program',
@@ -219,6 +210,23 @@ export default {
           title: 'All Inclusive',
           description:
             'We not only focus on bringing in scholars to our academy, but also highly encourage our members to apply at other scholarships, share their knowledge on Axie, and grow with scholars from other guilds! There is so much opportunity in Axie Infinity, our ultimate purpose is to get you there!',
+        },
+      ],
+      exams: [
+        {
+          title: 'Starter',
+          description:
+            "Initial basic knowledge exam about Axie Infinity.",
+        },
+        {
+          title: 'Common player',
+          description:
+            'Intermediate exam on Axie Infinity.',
+        },
+        {
+          title: 'Expert',
+          description:
+            'Even the last neuron must be used to approve this. Good luck with that.',
         },
       ],
       elevation: 0,
@@ -254,6 +262,7 @@ export default {
         },
         {
           title: 'Tools',
+          to: '#tools',
         },
         {
           icon: 'mdi-help-circle',
@@ -277,11 +286,6 @@ export default {
       }
     },
   },
-
-  /* This solution is not definitive, it is only until vuetify implements a v-parallax with 100vh */
-  //   mounted() {
-  //     document.getElementById('parallax-hero').style.height = '100vh'
-  //   },
 }
 </script>
 
@@ -295,4 +299,4 @@ export default {
 .homepage_toolbar_fill {
   background: #363941 !important;
 }
-</style>
+</style>|
